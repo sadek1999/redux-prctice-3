@@ -1,3 +1,4 @@
+import TodoContainer from "@/components/todo/TodoContainer";
 import Container from "@/components/ui/Container";
 
 
@@ -6,9 +7,10 @@ import Container from "@/components/ui/Container";
 const Todo = () => {
     return (
         <>
-        <h1>This is todo pages</h1>
+      
         <Container>
-            <h1>This is inside .......</h1>
+           <p className="font-bold text-3xl text-center">My Todo </p>
+           <TodoContainer></TodoContainer>
         </Container>
        
            

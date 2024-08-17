@@ -14,23 +14,30 @@ import { FormEvent, useState } from "react";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { useAppDispatch } from "@/redux/hooks";
 import { addTodo } from "@/redux/fetures/todoSlice";
+import { useAddTodosMutation } from "@/redux/Api/api";
 
 const AddTodoModel = () => {
  const [task,setTesk]=useState('')
  const [description,setDescription]=useState('')
 
- const dispatch =useAppDispatch()
+
+//  const dispatch =useAppDispatch()
+const [addTodo,{data,isLoading,isError}]=useAddTodosMutation()
+console.log(data,isLoading,isError)
+
  const onSubmit=(e:FormEvent)=>{
     e.preventDefault()
-    const randomString = Math.random().toString(36).substring(2, 7);
+    // const randomString = Math.random().toString(36).substring(2, 7);
 
     const taskDetails={
-      id:randomString,
+    
       title:task,
-      description
+      description,
+      
 
     }
-    dispatch(addTodo(taskDetails))
+    addTodo(taskDetails)
+    // dispatch(addTodo(taskDetails))
     
  }
 

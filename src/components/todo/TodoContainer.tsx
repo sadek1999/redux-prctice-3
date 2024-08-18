@@ -11,6 +11,10 @@ const TodoContainer = () => {
   const {data,error ,isLoading}=useGetTodosQuery(undefined)
   console.log(data)
 
+  if(isLoading){
+    return <p>Loding</p>
+  }
+
   const {todos}=useAppSelector((state)=>state.todo)
   return (
     <div>
@@ -26,7 +30,7 @@ const TodoContainer = () => {
         
           {/* {todos?.map((items)=><TodoCard  title={items.title} description={items.description} id={items.id} isCompleted={items.isCompleted} />)} */}
         
-          {todos?.map((items)=><TodoCard  {...items} />)}
+          {todos?.map((item)=><TodoCard  {...item} />)}
         
         </div>
         
